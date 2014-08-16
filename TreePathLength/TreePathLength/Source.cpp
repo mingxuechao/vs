@@ -1,16 +1,18 @@
 #include "mytree.h"
 #include <stdio.h>
-int atree[] = { 1, 2, 3, 4, -1, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+int atree[] = { 8,6,5,69,282,39,3,46,4,10 };
 int main()
 {
 	BinTree T;
-	initbintree(T, atree, sizeof(atree) / sizeof(int));
-	pernode(T);
-
+	Bintreeinit(T, *atree);
+	for (size_t i = 1; i < 10; i++)
+	{
+		sorttree_insert(T, atree[i]);
+	}
 	printf("\n\n\n");
-	pernode(T, myvisit);
+	midnode(T);
 	printf("\n\n\n");
-	//printf("%d",hightree(T));
+	printf("%d\n\n\n",hightree(T));
 	delbintree(T);
 	return 0;
 }

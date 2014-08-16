@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #define _NULLFLG -1
 //将用满二叉的数组表示形式的二叉树转换为链式表示，当值为 _NULLFLG 表示这个这个为空树。
-int initbintree(BinTree &T, int *data, int len, int lennow)
+int array2tree(BinTree &T, int *data, int len, int lennow)
 {
 	int lchild = 2 * lennow + 1;
 	int rchild = 2 * lennow + 2;
@@ -11,8 +11,8 @@ int initbintree(BinTree &T, int *data, int len, int lennow)
 	{
 		if ((T = (BinTreeNode *)malloc(sizeof(BinTreeNode))) == NULL){ return -1; }
 		T->data = *(data + lennow);
-		initbintree(T->lchild, data, len, lchild);
-		initbintree(T->rchild, data, len, rchild);
+		array2tree(T->lchild, data, len, lchild);
+		array2tree(T->rchild, data, len, rchild);
 	}
 	else
 	{
@@ -81,7 +81,7 @@ void lastnode(BinTree T)
 		printf("%d\t", T->data);
 	}
 }
-void pernode(BinTree T, int (* visit)(int data))
+void pernode(BinTree T, int(*visit)(int data))
 {
 	if (T != NULL)
 	{
@@ -93,5 +93,50 @@ void pernode(BinTree T, int (* visit)(int data))
 int myvisit(int data)
 {
 	printf("%d\t", (data + 1));
+	return 0;
+}
+int Bintreeinit(BinTree &T, int data)
+{
+	if ((T = (BinTree)malloc(sizeof(BinTreeNode))) == NULL){ return -1; };
+	T->lchild = NULL;
+	T->rchild = NULL;
+	T->data = data;
+	return 0;
+}
+int sorttree_insert(BinTree &T, int data)
+{
+	BinTreeNode *tmp;
+	BinTreeNode *datatmp = (BinTreeNode *)malloc(sizeof(BinTreeNode));
+	datatmp->lchild = NULL;
+	datatmp->rchild = NULL;
+	datatmp->data = data;
+	tmp = T;
+	while (1)
+	{
+		if (tmp->data > data)
+		{
+			if (tmp->lchild != NULL)
+			{
+				tmp = tmp->lchild;
+			}
+			else
+			{
+				tmp->lchild = datatmp;
+				break;
+			}
+		}
+		else 
+		{
+			if (tmp->rchild != NULL)
+			{
+				tmp = tmp->rchild;
+			}
+			else
+			{
+				tmp->rchild = datatmp;
+				break;
+			}
+		}
+	}
 	return 0;
 }
