@@ -1,23 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/*
-void change(int *a, int *b)
-{
-b = a; //修改这个变量不会更改地址内的内容，这个变量已经成了局部变量，在
-int tmp = *a;
-*a = *b;
-*b = tmp;  //这是一个地址的引用
-
-}
-int main()
-{
-int t1 = 1;
-int t2 = 2;
-change(&t1, &t2);
-printf("%d\n",sizeof(t1));
-return 0;
-}*/
 class mString{
 public:
 	mString(const char *str);
