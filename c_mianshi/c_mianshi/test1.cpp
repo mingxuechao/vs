@@ -28,11 +28,5 @@ int Calc(char *s, int i, int *next)
 			break;
 		}
 	}
-
-}
-
-void main()
-{
-	int s;
-	printf("%d\n", Calc("+2*+345", 0, &s));
+	return 0;
 }
