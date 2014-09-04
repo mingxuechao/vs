@@ -211,5 +211,8 @@ int main()
 		printf("%d\t", parts1[i]);
 	}
 	printf("\n");
+	int max = 0,max1 = 0;
+	max1 = dymaxprice(41, price, 10);
+	max = dymaxprice2(41, price, 10);
 	return 0;
 }
