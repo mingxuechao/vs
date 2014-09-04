@@ -187,7 +187,7 @@ int dymaxprice4(int len, int *price, int pricelen, int *parts, int &partslen)
 }
 
 
-
+/*
 
 int main()
 {
@@ -216,3 +216,4 @@ int main()
 	max = dymaxprice2(41, price, 10);
 	return 0;
 }
+*/
