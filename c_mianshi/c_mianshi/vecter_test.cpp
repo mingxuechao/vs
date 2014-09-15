@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <vector>
 class mydata
@@ -28,10 +29,12 @@ std::vector<mydata> function(int data)
 	tmp.push_back(*my);
 	return tmp;
 }
-
+*/
 //vector只是用了变量的一个引用，删掉这个引用时，删除引用时，是不会删除该变量的。
-int main()
+
+/*
+int main_test()
 {
 	std::vector<mydata> ttt = function(6);
 	return 0;
-}
+}*/
